@@ -1,4 +1,4 @@
-import { Config } from "src/config";
+import { Config } from "./config";
 import { Client } from "discord.js";
 import interactionCreate from "./listeners/interactionCreate";
 import ready from "./listeners/ready";
