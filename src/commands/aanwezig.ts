@@ -1,6 +1,6 @@
 import { Client, CommandInteraction } from "discord.js";
 import { Command } from "src/command";
-import { addAanwezigheidUsername, getLastAanwezigheidUsername, getUsername } from "../data/db_operations";
+import { addAanwezigheidUsername, getLastAanwezigheidUsername, getUsername } from "../data/userdb_operations";
 
 
 export const Aanwezig: Command = {
