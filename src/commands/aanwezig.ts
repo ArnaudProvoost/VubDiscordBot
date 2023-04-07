@@ -1,4 +1,4 @@
-import { Client, CommandInteraction } from "discord.js";
+import { Channel, Client, CommandInteraction, MessageReaction, ReactionManager, TextChannel, User } from "discord.js";
 import { Command } from "src/command";
 import { addAanwezigheidUsername, getLastAanwezigheidUsername, getUsername } from "../data/userdb_operations";
 
@@ -12,11 +12,11 @@ export const Aanwezig: Command = {
         var day = date.getDate()
         var user = getUsername(interaction.user.username)
         if (typeof user != 'string') {
-            if (getLastAanwezigheidUsername(user.name) != day) {
-                addAanwezigheidUsername(user.name, day)
+            if (getLastAanwezigheidUsername(user.name) == day) {
+                content = `Goed geprobeerd <@${interaction.user.id}>. Je bent al aanwezig. @here pas op <@${interaction.user.id}> probeert te cheaten.`
             }
             else {
-                content = `Goed geprobeerd <@${interaction.user.id}>. Je bent al aanwezig. @here pas op <@${interaction.user.id}> probeert te cheaten.`
+                addAanwezigheidUsername(interaction.user.username, day)
             }
         }
         else {

@@ -29,10 +29,6 @@ export function getLastAanwezigheidUsername(username: string) {
     return "User not found"
 }
 
-function getIndexUsername (username:string) {
-
-}
-
 export function getUsername(username: string) {
     if (findUsername(username)) {
         for (var i in db.data.users) {
@@ -59,6 +55,7 @@ export function getUsernames() {
 }
 
 export function addAanwezigheidUsername(username: string, dag: number) {
+    console.log("addAanwezigheidUsername")
     var user = getUsername(username)
 
     if (db.data.users[0] == undefined) {
